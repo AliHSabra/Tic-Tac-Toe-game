@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+    <div id="game-view">
+        <div id="game-view-info">
+            {{infoMessage}}
+        </div>
+        
+        <div id="game-view-squares">
+          <div 
+          v-for="(square, i) in squares" 
+          v-on:click="activeGame.makeMove(i)"
+          v-bind:class="{highlighted: square.isHighlighted}"
+          class="game-view-square">
+            
+          {{ square.value }}
+            </div>
+         </div>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12" charset="utf-8"></script>
+    <script src="Square.js" charset="utf-8"></script>
+    <script src="Game.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        let activeGame= new Game();
+
+        let gameVue=new Vue({
+            el : '#game-view',
+            data:activeGame,
+            computed:{
+                infoMessage:function(){
+                    if(this.inProgress){
+                        return `It is ${this.currentTurn} \ turn!`
+                    }
+                    if(this.winner){
+                        return this.winner+" wins!"
+                    }
+                    if(!this.winner && !this.inProgress){
+                        return "It is a draw";
+                    }
+                }
+            }
+});
+
+
+
+    </script>
+</body>
+</html>

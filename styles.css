@@ -1,0 +1,61 @@
+body{
+    background-image: url(./micheile-dot-com-JHQJetBBw9s-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+#game-view{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 7%;
+    border: 5px solid #93b265;
+    border-radius: 10px;
+}
+
+#game-view-info{
+    padding: 15px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #93b265;
+}
+
+#game-view-squares{
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.game-view-square{
+    width: 33.33%;
+    height: 33.33%;
+    color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    font-family: cursive;
+    font-size: 75px;
+    text-transform: uppercase;
+
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+.game-view-square.highlighted { color: lightgreen}
+
+.game-view-square:hover {background-color: gray;}
+
+.game-view-square:nth-child(-n + 6){border-bottom: 15px solid #6ba258}
+
+.game-view-square:nth-child(3n + 1),.game-view-square:nth-child(3n + 2){
+    border-right: 15px solid #6ba258;
+}
